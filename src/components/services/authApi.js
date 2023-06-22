@@ -23,3 +23,8 @@ export const getProfile = async () => {
     const { data } = await instance('/users/current');    
     return data;
 }
+
+export const logOut = async () => {
+    const { data } = await instance.post('/users/logout');
+  setToken(data.token)    
+}

@@ -18,6 +18,10 @@ const RegisterForm = () => {
       email,
       password,
     }).then(() => navigate('/login')).catch(error => {
+      if (email === error.response.data.keyValue.email) {
+        toast.error('Invalid email or password')
+        return
+      }      
       toast.error(error.response.data.message);      
     })
   };

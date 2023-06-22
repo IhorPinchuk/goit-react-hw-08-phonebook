@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { initialState } from './initialState';
-import { getProfileThunk, loginThunk } from './authThunks';
+import { getProfileThunk, logOutThunk, loginThunk } from './authThunks';
+import { toast } from 'react-hot-toast';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -13,8 +14,9 @@ const handleFulfilled = (state, { payload }) => {
 };
 
 const handleRejected = (state, { error, payload }) => {
-  state.isLoading = false;
-    state.error = payload ?? error.message;
+  state.isLoading = false;  
+  state.error = payload ?? error.message;
+  toast.error(`${payload ?? error.message}`)
 };
 
 const handleFulfilledProfile = (state, { payload }) => {
@@ -22,19 +24,20 @@ const handleFulfilledProfile = (state, { payload }) => {
   state.profile = payload;
 };
 
+const handleFulfilledLogOut = (state) => {
+  state.isLoading = false;
+  state.token = '';
+  state.profile = null;
+}
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: builder => {
     builder
       .addCase(loginThunk.fulfilled, handleFulfilled)
-      .addCase(getProfileThunk.fulfilled, handleFulfilledProfile)
-      .addMatcher(({ type }) => {
-        type.endsWith('/pending');
-      }, handlePending)
-      .addMatcher(({ type }) => {
-        type.endsWith('/rejected');
-      }, handleRejected);
+      .addCase(getProfileThunk.fulfilled, handleFulfilledProfile).addCase(logOutThunk.fulfilled, handleFulfilledLogOut).addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
+      .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected);
   },
 });
 

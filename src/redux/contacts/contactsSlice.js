@@ -9,7 +9,7 @@ const handlePending = state => {
 
 const handleFulfilled = (state, { payload }) => {
   state.isLoading = false;
-  state.contacts = payload;  
+  state.contacts = payload;
 };
 
 const handleRejected = (state, { payload }) => {
