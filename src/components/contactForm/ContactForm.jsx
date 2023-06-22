@@ -9,10 +9,10 @@ export const ContactForm = () => {
   const { contacts } = useSelector(contactsSelector);
   const dispatch = useDispatch();
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const newContact = {
     name,
-    phone,
+   number,
   };
 
   const handleChangeName = e => {
@@ -22,7 +22,7 @@ export const ContactForm = () => {
 
   const handleChangeNumber = e => {
     const { value } = e.currentTarget;
-    setPhone(value);
+    setNumber(value);
   };
 
   const handleSubmit = e => {
@@ -40,7 +40,7 @@ export const ContactForm = () => {
 
   const reset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -67,7 +67,7 @@ export const ContactForm = () => {
           pattern="^[0-9]+$"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
-          value={phone}
+          value={number}
           onChange={handleChangeNumber}
         />
       </label>

@@ -1,11 +1,12 @@
-import axios from "axios";
+import { instance } from "./baseUrl";
 
-const instance = axios.create({
-  baseURL: 'https://connections-api.herokuapp.com',
-})
 
 const setToken = (token) => {
     instance.defaults.headers.common['Authorization'] = token;
+}
+
+export const dellToken = () => {
+   delete instance.defaults.headers.common['Authorization'];
 }
 
 export const register = async (body) => {

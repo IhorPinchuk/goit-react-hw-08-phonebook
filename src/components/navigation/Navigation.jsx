@@ -5,7 +5,7 @@ import { authSelector } from "redux/auth/selectors";
 
 const Navigation = () => {
     const { token: isAuth } = useSelector(authSelector)
-    console.log('isAuth :>> ', isAuth);
+    
     return (
         <>
              {!isAuth ? <HomePageNavigation /> :
