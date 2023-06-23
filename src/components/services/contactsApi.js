@@ -1,7 +1,8 @@
+
 import { instance } from "./baseUrl";
 
 export const getContacts = async () => {
-  const { data } = await instance('/contacts');    
+  const { data } = await instance('/contacts');  
     return data;
 }
 

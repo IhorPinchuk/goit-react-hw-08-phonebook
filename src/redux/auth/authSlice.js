@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { initialState } from './initialState';
 import { getProfileThunk, logOutThunk, loginThunk } from './authThunks';
-import { toast } from 'react-hot-toast';
+// import { toast } from 'react-hot-toast';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -14,9 +14,12 @@ const handleFulfilled = (state, { payload }) => {
 };
 
 const handleRejected = (state, { error, payload }) => {
+  // console.log('error :>> ', error);
+  // console.log('payload :>> ', payload);
   state.isLoading = false;  
   state.error = payload ?? error.message;
-  toast.error(`${payload ?? error.message}`)
+console.log(payload ?? error.message);
+  // toast.error(`${payload ?? error.message}`)
 };
 
 const handleFulfilledProfile = (state, { payload }) => {

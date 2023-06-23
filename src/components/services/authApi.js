@@ -1,8 +1,9 @@
 import { instance } from "./baseUrl";
 
 
-const setToken = (token) => {
-    instance.defaults.headers.common['Authorization'] = token;
+export const setToken = (token) => {
+  instance.defaults.headers.common['Authorization'] = token;
+  
 }
 
 export const dellToken = () => {
@@ -27,5 +28,6 @@ export const getProfile = async () => {
 
 export const logOut = async () => {
     const { data } = await instance.post('/users/logout');
-  setToken(data.token)    
+   setToken(data.token)
+  return data;
 }

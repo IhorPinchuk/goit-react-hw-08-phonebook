@@ -1,18 +1,26 @@
 // import { login } from "components/services/authApi";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { loginThunk } from "redux/auth/authThunks";
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const dispatch = useDispatch()
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(loginThunk({email, password} ))
-    // login({email, password })
+    dispatch(loginThunk({ email, password })).unwrap().then((res) => {      
+      navigate('/contacts')
+      toast.success(`Welcome ${res.user.name}!!!`);
+    }).catch((error) => {
+      toast.error('Invalid email or password.');
+      return error;
+    })    
   }
 
   const handleChange = ({target:{value, name}}) => {
