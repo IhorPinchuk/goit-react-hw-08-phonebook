@@ -1,11 +1,11 @@
-import Navigation from "components/navigation/Navigation";
-import { setToken } from "components/services/authApi";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { Suspense, useEffect } from "react";
 import { Outlet } from "react-router-dom";
+import Navigation from "components/navigation/Navigation";
+import { useDispatch, useSelector } from "react-redux";
 import { resetToken } from "redux/auth/authSlice";
 import { getProfileThunk, logOutThunk } from "redux/auth/authThunks";
 import { authSelector } from "redux/auth/selectors";
+import { setToken } from "components/services/authApi";
 
 const Layout = () => {
     const { token, profile } = useSelector(authSelector)   
@@ -24,8 +24,10 @@ const Layout = () => {
             <header>
             <Navigation />
         </header>
-        <main>
-                <Outlet />
+            <main>
+                <Suspense>
+                    <Outlet />
+                    </Suspense>
         </main>
         </>
         

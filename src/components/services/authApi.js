@@ -12,7 +12,7 @@ export const dellToken = () => {
 
 export const register = async (body) => {
   return await instance.post('/users/signup', body)
-    
+      
 }
 
 export const login = async (body) => {
@@ -21,9 +21,9 @@ export const login = async (body) => {
     return data;
 }
 
-export const getProfile = async () => {
-    const { data } = await instance('/users/current');    
-    return data;
+export const getProfile = async () => {  
+  const { data } = await instance('/users/current');
+      return data;
 }
 
 export const logOut = async () => {

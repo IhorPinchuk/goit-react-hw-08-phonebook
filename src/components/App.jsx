@@ -1,15 +1,19 @@
-import Contacts from 'pages/Contacts';
-import Home from 'pages/Home';
-import Login from 'pages/Login';
-import Register from 'pages/Register';
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Layout from './layout/Layout';
 import { Toaster } from 'react-hot-toast';
+import Layout from './layout/Layout';
 import PrivateRoute from 'components/privateRoute/PrivateRoute';
 import PublicRoute from 'components/publicRoute/PublicRoute';
-// import { ContactForm } from './contactForm/ContactForm';
-// import ContactList from './contactList/ContactList';
-// import Filter from './filter/Filter';
+
+// import Home from 'pages/Home';
+// import Login from 'pages/Login';
+// import Register from 'pages/Register';
+// import Contacts from 'pages/Contacts';
+
+const Home = lazy(() => import('../pages/Home'));
+const Login = lazy(() => import('../pages/Login'));
+const Register = lazy(() => import('../pages/Register'));
+const Contacts = lazy(() => import('../pages/Contacts'));
 
 export const App = () => {
   return (
@@ -17,7 +21,14 @@ export const App = () => {
       <Toaster />
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<PublicRoute><Home /></PublicRoute>} />
+          <Route
+            index
+            element={
+              <PublicRoute>
+                <Home />
+              </PublicRoute>
+            }
+          />
           <Route
             path="login"
             element={

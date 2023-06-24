@@ -18,7 +18,8 @@ const RegisterForm = () => {
       email,
       password,
     }).then(() => navigate('/login')).catch(error => {          
-      toast.error('Invalid email or password. The minimum password length must be 7 characters');       
+      toast.error('Invalid email or password. The minimum password length must be 7 characters');
+      
       return error.response.data.message     
     })
   };
