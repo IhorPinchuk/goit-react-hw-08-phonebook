@@ -19,7 +19,8 @@ export default function ContactList() {
   useEffect(() => {
     dispatch(getContactsThunk());
   }, [dispatch]);
-  
+
+    
   return (
     <ul className={css.contact__list}>
       {getFilteredContacts.map(({ id, name, number }) => (

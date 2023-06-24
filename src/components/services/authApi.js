@@ -2,7 +2,7 @@ import { instance } from "./baseUrl";
 
 
 export const setToken = (token) => {
-  instance.defaults.headers.common['Authorization'] = token;
+  instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   
 }
 
@@ -16,8 +16,8 @@ export const register = async (body) => {
 }
 
 export const login = async (body) => {
-    const { data } = await instance.post('/users/login', body);
-    if ('token' in data) setToken(data.token)
+  const { data } = await instance.post('/users/login', body);
+      if ('token' in data) setToken(data.token)
     return data;
 }
 
@@ -27,7 +27,7 @@ export const getProfile = async () => {
 }
 
 export const logOut = async () => {
-    const { data } = await instance.post('/users/logout');
-   setToken(data.token)
+  const { data } = await instance.post('/users/logout');
+  dellToken();
   return data;
 }

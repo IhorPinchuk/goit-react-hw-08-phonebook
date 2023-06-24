@@ -2,8 +2,8 @@
 import { instance } from "./baseUrl";
 
 export const getContacts = async () => {
-  const { data } = await instance('/contacts');  
-    return data;
+  const { data } = await instance('/contacts');
+      return data;
 }
 
 export const addContact = async (body) => {

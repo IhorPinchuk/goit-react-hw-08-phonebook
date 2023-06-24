@@ -3,7 +3,8 @@ import { setToken } from "components/services/authApi";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
-import { getProfileThunk } from "redux/auth/authThunks";
+import { resetToken } from "redux/auth/authSlice";
+import { getProfileThunk, logOutThunk } from "redux/auth/authThunks";
 import { authSelector } from "redux/auth/selectors";
 
 const Layout = () => {
@@ -14,7 +15,7 @@ const Layout = () => {
     useEffect(() => {
         if (token && !profile) {
             setToken(token)
-            dispatch(getProfileThunk())
+            dispatch(getProfileThunk()).unwrap().catch(() => dispatch(logOutThunk()).unwrap().catch(() => dispatch(resetToken())))
         }
 }, [dispatch, profile, token])
 

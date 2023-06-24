@@ -12,7 +12,7 @@ export const ContactForm = () => {
   const [number, setNumber] = useState('');
   const newContact = {
     name,
-   number,
+    number,
   };
 
   const handleChangeName = e => {

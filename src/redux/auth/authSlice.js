@@ -16,9 +16,9 @@ const handleFulfilled = (state, { payload }) => {
 const handleRejected = (state, { error, payload }) => {
   // console.log('error :>> ', error);
   // console.log('payload :>> ', payload);
-  state.isLoading = false;  
+  state.isLoading = false;
   state.error = payload ?? error.message;
-console.log(payload ?? error.message);
+  console.log(payload ?? error.message);
   // toast.error(`${payload ?? error.message}`)
 };
 
@@ -27,21 +27,32 @@ const handleFulfilledProfile = (state, { payload }) => {
   state.profile = payload;
 };
 
-const handleFulfilledLogOut = (state) => {
+const handleFulfilledLogOut = state => {
   state.isLoading = false;
   state.token = '';
   state.profile = null;
-}
+};
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    resetToken: state => {
+      state.token = '';
+      state.isLoading = false;
+      state.error = '';
+      state.profile = null;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(loginThunk.fulfilled, handleFulfilled)
-      .addCase(getProfileThunk.fulfilled, handleFulfilledProfile).addCase(logOutThunk.fulfilled, handleFulfilledLogOut).addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
+      .addCase(getProfileThunk.fulfilled, handleFulfilledProfile)
+      .addCase(logOutThunk.fulfilled, handleFulfilledLogOut)
+      .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
       .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected);
   },
 });
 
+export const {resetToken } = authSlice.actions;
 export const authReducer = authSlice.reducer;
