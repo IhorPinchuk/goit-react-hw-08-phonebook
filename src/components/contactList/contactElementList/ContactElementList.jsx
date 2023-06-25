@@ -8,8 +8,9 @@ export default function ContactElementList({
 }) {
   return (
     <>
+      <div className={css.contact_element_wrapper}>
       <p>
-        {name}: {number}
+        <span>{name}:</span><span>{number}</span>
       </p>
       <button
         className={css.contact__list__item__btn}
@@ -17,7 +18,8 @@ export default function ContactElementList({
         onClick={handleClickDelete}
       >
         Delete
-      </button>
+        </button>
+        </div>
     </>
   );
 }

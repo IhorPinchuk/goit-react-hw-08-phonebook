@@ -21,9 +21,10 @@ const Layout = () => {
 
     return (
         <>
-            <header>
+            {/* <header> */}
+            
             <Navigation />
-        </header>
+        {/* </header> */}
             <main>
                 <Suspense>
                     <Outlet />

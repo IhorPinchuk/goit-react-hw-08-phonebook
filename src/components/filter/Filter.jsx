@@ -13,7 +13,7 @@ export default function Filter() {
   };
 
   return (
-    <label>
+    <label className={css.filter__label}>
       Find contacts by name
       <input
         className={css.filter__input}

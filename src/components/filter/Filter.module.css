@@ -1,9 +1,29 @@
-.filter__input {
-  display: flex;
+.filter__label {
+display: flex;
   flex-direction: column;
-  margin: 8px auto;
   align-items: center;
-  font-size: large;
-  text-align: left;
-  padding: 8px 200px 8px 16px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.filter__input {
+  width: 100%;
+    max-width: 300px;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #066edec4;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 8px 0px #066edec4;
+    cursor: text;
+    outline: transparent;
+    background-color: #e6eaee;
+    color: #1206f6;
+}
+
+.filter__input:hover,
+.filter__input:focus {
+  background-color: #fff;
+  border-color: rgb(51, 255, 0);
+  box-shadow: inset 0px 0px 8px 0px rgb(51, 255, 0);
+  color: #0fc409;
 }

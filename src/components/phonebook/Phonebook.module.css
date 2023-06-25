@@ -1,0 +1,55 @@
+.wrapper {
+  max-width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  /* margin: 0 auto; */
+}
+
+.contact_wrapper {
+  display: flex;
+  justify-content: center;  
+  margin-right: auto;
+  margin-left: auto;
+  /* margin: 0 auto; */
+}
+
+.contact_form {
+  margin-right: 20px;
+  width: 100%;
+  max-width: 300px;
+  background-color: #b4c7daeb;  
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.contact_list_wrapper {
+  width: 100%;
+max-width: 600px;
+  background-color: #b4c7daeb;  
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.title {
+    margin-bottom: 50px;
+        font-size: 36px;
+        line-height: 1.1667;
+        text-align: center;
+        color: #000000;        
+        text-shadow: 1px 1px 2px #066edec4, 0 0 1em #066edec4, 0 0 0.2em #066edec4;
+        
+}
+
+.title_contacts {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    line-height: 1.1667;
+    text-align: center;
+    color: #000000;        
+        text-shadow: 1px 1px 2px #066edec4, 0 0 1em #066edec4, 0 0 0.2em #066edec4;
+}
