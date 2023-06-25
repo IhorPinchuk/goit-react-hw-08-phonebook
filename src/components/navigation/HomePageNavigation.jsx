@@ -1,18 +1,29 @@
+import { Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
 const HomePageNavigation = () => {
     return (
+        
         <nav>
+            
             <NavLink to={"/"}>
-                Home
-            </NavLink>
+                <Typography variant="h5" color="#ffffff"  component={"span"}>
+                    Home
+                    </Typography>
+                </NavLink>
+                
             <NavLink to={"login"}>
-                Log In
+                <Typography variant="h5" color="#ffffff"  component={"span"}>
+                    Log In
+                    </Typography>
             </NavLink>
             <NavLink to={"register"}>
-                Sign Up
+                <Typography variant="h5" color="#ffffff" component={"span"} >
+                    Sign Up
+                    </Typography>
             </NavLink>            
-        </nav>
+            </nav>
+            
     )
 }
 

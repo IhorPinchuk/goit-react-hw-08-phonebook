@@ -1,7 +1,10 @@
+import { Typography } from "@mui/material";
 
 const Home = () => {
     return (
-    <p>Register or log in to view contacts!!!</p>
+        <Typography  color="inherit" align="center" component="p">
+            Register or log in to view contacts!!!
+            </Typography>
 )
 }
 
