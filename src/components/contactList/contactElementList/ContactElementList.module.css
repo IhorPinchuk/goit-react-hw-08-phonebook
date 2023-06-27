@@ -1,8 +1,18 @@
-.contact_element_wrapper {
+/* .contact_element_scroll {
+  display: block;
+  height: 100%;
+overflow: scroll;
+
+} */
+
+/* .contact_element_wrapper {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-}
+  /* width: 100%; */
+  /* overflow: scroll; */
+/* } */ 
+
+
 
 .contact__list__item__btn {
   display: block;
@@ -20,7 +30,10 @@
   cursor: pointer;
 }
 
-.contact__list__item__btn:hover {
+.contact__list__item__btn:hover,
+.contact__list__item__btn:focus {
   background-color: rgb(255, 0, 0);
-  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 6px #de0606c4
+  
 }

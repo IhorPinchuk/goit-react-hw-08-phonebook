@@ -1,5 +1,8 @@
 export const initialState = {
   contacts: [],
-  isLoading: false,
+  // isLoading: false,
+  isLoadingContacts: false,
+  isLoadingAddContact: false,
+  isLoadingDellContact: false,
   error: null,
 };

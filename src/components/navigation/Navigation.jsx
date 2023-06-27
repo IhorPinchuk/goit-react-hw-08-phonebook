@@ -11,7 +11,7 @@ const Navigation = () => {
 
   return (
     <>     
-        <AppBar position="fixed" width="100%" component="header">
+        <AppBar position="static" width="100%" component="header">
           <Toolbar>
             {!isAuth ? <HomePageNavigation /> : <UserPageNavigation />}
           </Toolbar>

@@ -23,6 +23,8 @@ const theme = {
     hoverBackgroundColor: 'rgb(51, 255, 0)',
     hoverColor: '#066edec4',
     hoverBorder: '1px solid rgb(51, 255, 0)',
+    hoverScale: 'scale(1.15)',
+    hoverBoxShadow: '0px 4px 6px #6db804c4',
   },
 };
 
@@ -51,6 +53,9 @@ margin-left: ${() => theme.btn.marginLeft};
     color: ${() => theme.btn.hoverColor};
     background-color: ${() => theme.btn.hoverBackgroundColor};    
     border: ${() => theme.btn.hoverBorder};    
+    transform: ${() => theme.btn.hoverScale}; 
+    box-shadow: ${() => theme.btn.hoverBoxShadow}; 
+      
   }
 `;
 

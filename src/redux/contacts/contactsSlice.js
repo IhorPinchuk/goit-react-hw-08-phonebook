@@ -1,19 +1,46 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { initialState } from './initialState';
-import { getContactsThunk } from 'redux/contacts/contactsThunk';
+import {
+  deleteContactThunk,
+  getContactsThunk,
+  postContactsThunk,
+} from 'redux/contacts/contactsThunk';
 
-const handlePending = state => {
-  state.isLoading = true;
+const handleContactsPending = state => {
+  state.isLoadingContacts = true;
+  state.isLoadingAddContact = false;
+  state.isLoadingDellContact = false;
   state.error = '';
 };
 
-const handleFulfilled = (state, { payload }) => {
-  state.isLoading = false;
+const handleContactsFulfilled = (state, { payload }) => {
+  state.isLoadingContacts = false;
   state.contacts = payload;
 };
 
+const handleAddContactPending = state => {
+  state.isLoadingAddContact = true;
+  state.error = '';
+};
+
+const handleAddContactFulfilled = (state, { payload }) => {
+  state.isLoadingAddContact = false;
+};
+
+const handleDellContactPending = state => {
+  state.isLoadingDellContact = true;
+  state.error = '';
+};
+
+const handleDellContactFulfilled = (state, { payload }) => {
+  state.isLoadingDellContact = false;
+};
+
 const handleRejected = (state, { payload }) => {
-  state.isLoading = false;
+  state.isLoadingContacts = false;
+  state.isLoadingAddContacts = false;
+  state.isLoadingDellContacts = false;
+  // state.isLoading = false;
   state.error = payload;
 };
 
@@ -22,13 +49,13 @@ const contactsSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-      .addCase(getContactsThunk.fulfilled, handleFulfilled)
-      .addMatcher(action => {
-        action.type.endsWith('/pending');
-      }, handlePending)
-      .addMatcher(action => {
-        action.type.endsWith('/rejected');
-      }, handleRejected);
+      .addCase(getContactsThunk.pending, handleContactsPending)
+      .addCase(getContactsThunk.fulfilled, handleContactsFulfilled)
+      .addCase(postContactsThunk.pending, handleAddContactPending)
+      .addCase(postContactsThunk.fulfilled, handleAddContactFulfilled)
+      .addCase(deleteContactThunk.pending, handleDellContactPending)
+      .addCase(deleteContactThunk.fulfilled, handleDellContactFulfilled)
+      .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected);
   },
 });
 

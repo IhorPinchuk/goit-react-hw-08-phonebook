@@ -4,7 +4,7 @@ padding: 0;
 
 .contact__item {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   
 }
