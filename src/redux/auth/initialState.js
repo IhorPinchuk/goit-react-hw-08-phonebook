@@ -1,6 +1,6 @@
 export const initialState = {
-    token: '',
-    isLoading: false,
-    error: '',
-    profile: null,
-}
+  token: '',
+  isLoading: false,
+  error: '',
+  profile: null,
+};

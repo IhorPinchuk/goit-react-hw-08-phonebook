@@ -40,7 +40,6 @@ const handleRejected = (state, { payload }) => {
   state.isLoadingContacts = false;
   state.isLoadingAddContacts = false;
   state.isLoadingDellContacts = false;
-  // state.isLoading = false;
   state.error = payload;
 };
 

@@ -1,5 +1,5 @@
 .filter__label {
-display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 15px;
@@ -8,16 +8,16 @@ display: flex;
 
 .filter__input {
   width: 100%;
-    max-width: 300px;
-    margin-top: 5px;
-    padding: 10px;
-    border: 1px solid #066edec4;
-    border-radius: 5px;
-    box-shadow: inset 0px 0px 8px 0px #066edec4;
-    cursor: text;
-    outline: transparent;
-    background-color: #e6eaee;
-    color: #1206f6;
+  max-width: 300px;
+  margin-top: 5px;
+  padding: 10px;
+  border: 1px solid #066edec4;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 8px 0px #066edec4;
+  cursor: text;
+  outline: transparent;
+  background-color: #e6eaee;
+  color: #1206f6;
 }
 
 .filter__input:hover,

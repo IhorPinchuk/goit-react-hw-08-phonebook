@@ -20,6 +20,7 @@ export default function Filter() {
         type="text"
         name="filter"
         value={filter}
+        placeholder="Search by name"
         onChange={handleChange}
       ></input>
     </label>

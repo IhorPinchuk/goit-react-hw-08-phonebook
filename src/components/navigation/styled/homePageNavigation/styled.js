@@ -1,21 +1,19 @@
-
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 const theme = {
-    display: "flex", 
-    justifyContent: "space-between",
-    width: "1200px",
-    margin: "0 auto",
-    
-}
+  display: 'flex',
+  justifyContent: 'space-between',
+  width: '1200px',
+  margin: '0 auto',
+};
 
 export const StyledLink = styled(NavLink)`
   color: #ffffff;
   text-decoration: none;
-    padding: 12px; 
-    
-     &:hover,
+  padding: 12px;
+
+  &:hover,
   &:focus {
     color: rgb(51, 255, 0);
   }

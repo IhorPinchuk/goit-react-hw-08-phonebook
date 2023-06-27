@@ -5,14 +5,11 @@ import {
   getContacts,
 } from '../../components/services/contactsApi';
 
-
-
 export const getContactsThunk = createAsyncThunk(
   'contacts/fetchAll',
-  async (_, {rejectWithValue}) => {
+  async (_, { rejectWithValue }) => {
     try {
-      return await getContacts()
-
+      return await getContacts();
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }

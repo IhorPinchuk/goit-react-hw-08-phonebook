@@ -9,27 +9,29 @@ import { contactsSelector } from 'redux/contacts/selectors';
 import { authSelector } from 'redux/auth/selectors';
 
 const Phonebook = () => {
-
- const { isLoadingContacts, isLoadingAddContact, isLoadingDellContact } = useSelector(contactsSelector)
+  const { isLoadingContacts, isLoadingAddContact, isLoadingDellContact } =
+    useSelector(contactsSelector);
   const { isLoading } = useSelector(authSelector);
   return (
     <>
-   {isLoading && <LinearProgress />}   
-    <div className={css.wrapper}>      
-      <h1 className={css.title}>Phonebook</h1>
-      <div className={css.contact_wrapper}>
-        <section className={css.contact_form}>
-          <ContactForm />
-        </section>
-        <section className={css.contact_list_wrapper}>
-          <h2 className={css.title_contacts}>Contacts</h2>
-          <Filter />
-          {(isLoadingContacts || isLoadingAddContact || isLoadingDellContact) && <LinearProgress />}
-          <ContactList />
-        </section>
+      {isLoading && <LinearProgress />}
+      <div className={css.wrapper}>
+        <h1 className={css.title}>Phonebook</h1>
+        <div className={css.contact_wrapper}>
+          <section className={css.contact_form}>
+            <ContactForm />
+          </section>
+          <section className={css.contact_list_wrapper}>
+            <h2 className={css.title_contacts}>Contacts</h2>
+            <Filter />
+            {(isLoadingContacts ||
+              isLoadingAddContact ||
+              isLoadingDellContact) && <LinearProgress />}
+            <ContactList />
+          </section>
+        </div>
       </div>
-      </div>
-      </>
+    </>
   );
 };
 

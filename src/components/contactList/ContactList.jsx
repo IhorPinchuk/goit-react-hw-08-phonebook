@@ -15,17 +15,15 @@ export default function ContactList() {
   const { contacts } = useSelector(contactsSelector);
   const { filter } = useSelector(filterSelector);
   const getFilteredContacts = filteredContacts(contacts, filter);
- 
 
-  const handleClickDelete = (id) => {
-  dispatch(deleteContactThunk(id))
-}
+  const handleClickDelete = id => {
+    dispatch(deleteContactThunk(id));
+  };
 
   useEffect(() => {
     dispatch(getContactsThunk());
   }, [dispatch]);
 
-    
   return (
     <ul className={css.contact__list}>
       {getFilteredContacts.map(({ id, name, number }) => (
@@ -34,16 +32,12 @@ export default function ContactList() {
             id={id}
             name={name}
             number={number}
-            handleClickDelete={(e) => { 
+            handleClickDelete={() => {
               // if (e.target.value === id ) {
               //   console.log('Привіт');
-              // } 
-              // console.log('id :>> ', id);
-              // console.log('object :>> ', e.currentTarget.value);
-              // console.log('target :>> ', e.target);
-              handleClickDelete(id)
+              // }
+              handleClickDelete(id);
             }}
-            
           />
         </li>
       ))}

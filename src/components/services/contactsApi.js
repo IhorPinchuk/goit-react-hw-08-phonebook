@@ -1,17 +1,14 @@
-
-import { instance } from "./baseUrl";
+import { instance } from './baseUrl';
 
 export const getContacts = async () => {
   const { data } = await instance('/contacts');
-      return data;
-}
+  return data;
+};
 
-export const addContact = async (body) => {
-  return await instance.post('/contacts', body)
+export const addContact = async body => {
+  return await instance.post('/contacts', body);
 };
 
 export const deleteContact = async id => {
-  return await instance.delete(`/contacts/${id}`);    
-    
+  return await instance.delete(`/contacts/${id}`);
 };
-

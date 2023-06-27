@@ -51,10 +51,11 @@ export const ContactForm = () => {
           className={css.input}
           type="text"
           name="name"
-          pattern="^[a-zA-Zа-яА-Я]+$"
+          pattern="^[A-Za-z\u0080-\uFFFF ']+$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           value={name}
+          placeholder="Enter name"
           onChange={handleChangeName}
         />
       </label>
@@ -62,12 +63,13 @@ export const ContactForm = () => {
         Number
         <input
           className={css.input}
+          format="(###) ###-##-##"          
           type="tel"
           name="number"
-          pattern="^[0-9]+$"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          pattern="^[0-9]+$"          
           required
           value={number}
+          placeholder="Enter phone number"
           onChange={handleChangeNumber}
         />
       </label>

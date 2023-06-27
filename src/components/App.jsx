@@ -5,11 +5,6 @@ import Layout from './layout/Layout';
 import PrivateRoute from 'components/privateRoute/PrivateRoute';
 import PublicRoute from 'components/publicRoute/PublicRoute';
 
-// import Home from 'pages/Home';
-// import Login from 'pages/Login';
-// import Register from 'pages/Register';
-// import Contacts from 'pages/Contacts';
-
 const Home = lazy(() => import('../pages/Home'));
 const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
